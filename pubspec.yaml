@@ -1,17 +1,17 @@
 name: flutter_fluxion
-description: 'Reactive & efficient state management library.'
+description: 'Reactive, efficient, and super lightweight state management library.'
 version: 1.0.0
 homepage: https://github.com/ihorbokov/flutter_fluxion
 
 environment:
-#  sdk: '>=3.4.0 <4.0.0'
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=2.17.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-#  very_good_analysis: ^6.0.0
+  very_good_analysis: ^6.0.0
