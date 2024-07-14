@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fluxion/flutter_fluxion.dart';
+import 'package:flutter_fluxion/src/fluxion.dart';
 import 'package:flutter_fluxion/src/fluxion_base.dart';
+import 'package:flutter_fluxion/src/fluxion_builder.dart';
 
 /// A typedef for a function that transforms the state [S] into a new form [T].
 typedef FlxnWidgetSelector<S, T> = T Function(S state);
