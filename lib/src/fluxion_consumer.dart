@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' hide WidgetBuilder;
+import 'package:flutter/material.dart';
 import 'package:flutter_fluxion/src/fluxion.dart';
 import 'package:flutter_fluxion/src/fluxion_builder.dart';
 import 'package:flutter_fluxion/src/fluxion_listener.dart';
@@ -34,19 +34,19 @@ class FluxionConsumer<F extends Fluxion<S>, S> extends StatelessWidget {
 
   /// A callback that is called in response to state changes. This is
   /// where side-effects in response to state updates should be handled.
-  final StateListener<S> listener;
+  final FlxnWidgetListener<S> listener;
 
   /// A condition that determines whether the listener should be triggered.
   /// If null, the listener will be called on every state change.
-  final ListenerCondition<S>? listenWhen;
+  final FlxnListenerCondition<S>? listenWhen;
 
   /// A builder function that is used to create the widget tree based
   /// on the state.
-  final WidgetBuilder<S> builder;
+  final FlxnWidgetBuilder<S> builder;
 
   /// A condition that determines whether the widget should rebuild when the
   /// state changes. If null, the widget will rebuild on every state change.
-  final BuilderCondition<S>? buildWhen;
+  final FlxnBuilderCondition<S>? buildWhen;
 
   @override
   Widget build(BuildContext context) {

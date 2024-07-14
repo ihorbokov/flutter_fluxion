@@ -7,11 +7,11 @@ import 'package:flutter_fluxion/src/fluxion_base.dart';
 ///
 /// This function returns true if the widget should rebuild
 /// when the state changes from [previous] to [current].
-typedef BuilderCondition<S> = bool Function(S previous, S current);
+typedef FlxnBuilderCondition<S> = bool Function(S previous, S current);
 
 /// A typedef for a function that builds a widget based on
 /// the given [context] and state [S].
-typedef WidgetBuilder<S> = Widget Function(BuildContext context, S state);
+typedef FlxnWidgetBuilder<S> = Widget Function(BuildContext context, S state);
 
 /// A widget that rebuilds itself based on the changes in the state
 /// of a [Fluxion].
@@ -35,11 +35,11 @@ class FluxionBuilder<F extends Fluxion<S>, S> extends BaseListener<F, S> {
   });
 
   /// The builder function used to create the UI of this widget.
-  final WidgetBuilder<S> builder;
+  final FlxnWidgetBuilder<S> builder;
 
   /// A condition function that determines whether to rebuild
   /// the widget on state changes.
-  final BuilderCondition<S>? buildWhen;
+  final FlxnBuilderCondition<S>? buildWhen;
 
   @override
   State<FluxionBuilder<F, S>> createState() => _FluxionBuilderState<F, S>();

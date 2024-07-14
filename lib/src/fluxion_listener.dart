@@ -7,11 +7,11 @@ import 'package:flutter_fluxion/src/fluxion_base.dart';
 ///
 /// This function returns true if the listener should be invoked when
 /// the state changes from [previous] to [current].
-typedef ListenerCondition<S> = bool Function(S previous, S current);
+typedef FlxnListenerCondition<S> = bool Function(S previous, S current);
 
 /// A typedef for a function that executes side effects based on the
 /// given [context] and state [S].
-typedef StateListener<S> = void Function(BuildContext context, S state);
+typedef FlxnWidgetListener<S> = void Function(BuildContext context, S state);
 
 /// A Flutter widget that listens to state changes from a [Fluxion] and
 /// executes side effects.
@@ -41,10 +41,10 @@ class FluxionListener<F extends Fluxion<S>, S> extends BaseListener<F, S> {
   });
 
   /// The callback executed in response to state changes.
-  final StateListener<S> listener;
+  final FlxnWidgetListener<S> listener;
 
   /// A condition that determines whether the listener should be triggered.
-  final ListenerCondition<S>? listenWhen;
+  final FlxnListenerCondition<S>? listenWhen;
 
   /// The child widget to display. This widget does not rebuild when the
   /// state changes.

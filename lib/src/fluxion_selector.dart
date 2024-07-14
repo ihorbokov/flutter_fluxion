@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart' hide WidgetBuilder;
+import 'package:flutter/material.dart';
 import 'package:flutter_fluxion/flutter_fluxion.dart';
 import 'package:flutter_fluxion/src/fluxion_base.dart';
 
 /// A typedef for a function that transforms the state [S] into a new form [T].
-typedef StateSelector<S, T> = T Function(S state);
+typedef FlxnWidgetSelector<S, T> = T Function(S state);
 
 /// A widget that listens to a [Fluxion] and rebuilds its child selectively
 /// based on the transformation defined by a [selector].
@@ -22,10 +22,10 @@ class FluxionSelector<F extends Fluxion<S>, S, T> extends BaseListener<F, S> {
   });
 
   /// A function that transforms the state [S] into a new form [T].
-  final StateSelector<S, T> selector;
+  final FlxnWidgetSelector<S, T> selector;
 
   /// A builder function used to create the UI based on the selected state [T].
-  final WidgetBuilder<T> builder;
+  final FlxnWidgetBuilder<T> builder;
 
   @override
   State<FluxionSelector<F, S, T>> createState() =>

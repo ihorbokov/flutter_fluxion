@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// A typedef for a listener callback function
 /// that receives updates to the state.
-typedef Listener<S> = void Function(S state);
+typedef FlxnListener<S> = void Function(S state);
 
 /// An abstract class that provides a reactive state management mechanism.
 ///
@@ -22,7 +22,7 @@ abstract class Fluxion<S> {
   late S _state;
 
   /// A list of listeners that are called when the state changes.
-  late final List<Listener<S>> _listeners;
+  late final List<FlxnListener<S>> _listeners;
 
   /// Returns the current state.
   S get state => _state;
@@ -42,13 +42,13 @@ abstract class Fluxion<S> {
   /// Adds a [Listener] to the list of listeners.
   ///
   /// The [listener] will be called whenever the state changes.
-  void addListener(Listener<S> listener) => _listeners.add(listener);
+  void addListener(FlxnListener<S> listener) => _listeners.add(listener);
 
   /// Removes a [Listener] from the list of listeners.
   ///
   /// This method removes the specified [listener]
   /// so it no longer receives state updates.
-  void removeListener(Listener<S> listener) => _listeners.remove(listener);
+  void removeListener(FlxnListener<S> listener) => _listeners.remove(listener);
 
   /// Cleans up the Fluxion by clearing all listeners.
   ///
