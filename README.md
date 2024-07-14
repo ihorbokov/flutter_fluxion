@@ -10,7 +10,7 @@
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
 </p>
 
-# Flutter Fluxion
+# Fluxion
 Flutter Fluxion is a highly reactive state management library designed to optimize and simplify state management in Flutter applications. Built with performance and minimal UI re-renders in mind, it offers a variety of tools to control and update the UI efficiently. Inspired by the popular [flutter_bloc](https://pub.dev/packages/flutter_bloc) library.
 
 ## Features
