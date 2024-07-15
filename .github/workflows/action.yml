@@ -1,0 +1,31 @@
+name: Package Workflow
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+
+      - name: 📦 Install Dependencies
+        run: flutter pub get
+
+      - name: ✨ Format
+        run: dart format --set-exit-if-changed .
+
+      - name: 🔍 Analyze
+        run: dart analyze
+
+      - name: 🧪 Test
+        run: |
+          if [ -d "test" ]; then
+            flutter test --no-pub --test-randomize-ordering-seed random --coverage
+          fi
+
+      - name: ⬆️ Upload Coverage
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
