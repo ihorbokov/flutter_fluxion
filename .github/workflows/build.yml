@@ -26,7 +26,8 @@ jobs:
       - name: Run Tests
         run: |
           flutter pub global activate coverage
-          flutter test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+          flutter test --coverage
+          dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 
       - name: Verify coverage report exists
         run: ls -l coverage/lcov.info
