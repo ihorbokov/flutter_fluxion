@@ -28,12 +28,12 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
   const FluxionProvider({
     required FlxnCreate<F> create,
     required this.child,
-    this.lazy = true,
-    FlxnUpdateShouldNotify<F>? updateShouldNotify,
+    bool lazy = true,
     super.key,
   })  : _create = create,
         _value = null,
-        _updateShouldNotify = updateShouldNotify;
+        _lazy = lazy,
+        _updateShouldNotify = null;
 
   /// Constructs a [FluxionProvider] that uses an existing [Fluxion] instance
   /// provided by [value].
@@ -48,11 +48,11 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
   const FluxionProvider.value({
     required F value,
     required this.child,
-    this.lazy = true,
     FlxnUpdateShouldNotify<F>? updateShouldNotify,
     super.key,
   })  : _create = null,
         _value = value,
+        _lazy = null,
         _updateShouldNotify = updateShouldNotify;
 
   /// The Fluxion instance, if provided directly.
@@ -65,7 +65,7 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
   final FlxnUpdateShouldNotify<F>? _updateShouldNotify;
 
   /// Indicates whether the [Fluxion] should be created lazily (on-demand).
-  final bool lazy;
+  final bool? _lazy;
 
   /// The child widget that can access the [Fluxion].
   final Widget child;
@@ -74,20 +74,21 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
   Widget build(BuildContext context) {
     final value = _value;
     if (value != null) {
-      return InheritedProvider<F>.value(
+      return Provider<F>.value(
         value: value,
-        lazy: lazy,
         updateShouldNotify: _updateShouldNotify,
-        child: child,
-      );
-    } else {
-      return InheritedProvider<F>(
-        create: _create,
-        lazy: lazy,
-        updateShouldNotify: _updateShouldNotify,
-        dispose: (_, fluxion) => fluxion.clear(),
         child: child,
       );
     }
+    final create = _create;
+    if (create != null) {
+      return Provider<F>(
+        create: create,
+        dispose: (_, fluxion) => fluxion.clear(),
+        lazy: _lazy,
+        child: child,
+      );
+    }
+    return child;
   }
 }
