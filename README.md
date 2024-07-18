@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/ihorbokov/flutter_fluxion/master/assets/logo.png" height="100" alt="Fluxion Package" />
+<img src="https://raw.githubusercontent.com/ihorbokov/flutter_fluxion/master/assets/logo.png" height="50" alt="Fluxion Package" />
 </p>
 
 <p align="center">
