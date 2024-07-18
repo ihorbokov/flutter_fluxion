@@ -1,14 +1,14 @@
-<p align="center">
+<div style="text-align: center;">
 <img src="https://raw.githubusercontent.com/ihorbokov/flutter_fluxion/master/assets/logo.png" height="100" alt="Fluxion Package" />
-</p>
+</div>
 
-<p align="center">
+<div style="text-align: center;">
 <a href="https://pub.dev/packages/flutter_fluxion"><img src="https://img.shields.io/pub/v/flutter_fluxion.svg" alt="Pub"></a>
 <a href="https://github.com/ihorbokov/flutter_fluxion/actions"><img src="https://github.com/ihorbokov/flutter_fluxion/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="https://codecov.io/gh/ihorbokov/flutter_fluxion"><img src="https://codecov.io/gh/ihorbokov/flutter_fluxion/graph/badge.svg?token=DV4DT69EF6" alt="codecov"></a>
 <a href="https://pub.dev/packages/very_good_analysis"><img src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg" alt="style: very good analysis"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
-</p>
+</div>
 
 # Fluxion
 Flutter Fluxion is a highly reactive state management library designed to optimize and simplify state management in Flutter applications. Built with performance and minimal UI re-renders in mind, it offers a variety of tools to control and update the UI efficiently. Inspired by the popular [flutter_bloc](https://pub.dev/packages/flutter_bloc) library.
