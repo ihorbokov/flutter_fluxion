@@ -41,8 +41,8 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
   /// This constructor is typically used to provide an existing [Fluxion]
   /// to the subtree.
   ///
-  /// If [lazy] is true, the [Fluxion] is created the first time it is
-  /// requested.
+  /// An optional [updateShouldNotify] function that determines whether
+  /// listeners should be notified when the provided [Fluxion] instance changes.
   ///
   /// The [child] widget is the subtree that can access the [Fluxion].
   const FluxionProvider.value({
