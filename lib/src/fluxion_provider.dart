@@ -72,23 +72,19 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final value = _value;
-    if (value != null) {
+    if (_value != null) {
       return Provider<F>.value(
-        value: value,
+        value: _value!,
         updateShouldNotify: _updateShouldNotify,
         child: child,
       );
-    }
-    final create = _create;
-    if (create != null) {
+    } else {
       return Provider<F>(
-        create: create,
+        create: _create!,
         dispose: (_, fluxion) => fluxion.clear(),
         lazy: _lazy,
         child: child,
       );
     }
-    return child;
   }
 }
