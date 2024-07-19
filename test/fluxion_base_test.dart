@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fluxion/src/base/base_listener.dart';
 import 'package:flutter_fluxion/src/fluxion.dart';
-import 'package:flutter_fluxion/src/fluxion_base.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 

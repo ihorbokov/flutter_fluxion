@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fluxion/src/base/base_listener.dart';
 import 'package:flutter_fluxion/src/fluxion.dart';
-import 'package:flutter_fluxion/src/fluxion_base.dart';
 
 /// A typedef for a condition function that determines if the listener
 /// should execute.
