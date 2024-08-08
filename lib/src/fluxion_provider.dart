@@ -72,16 +72,15 @@ class FluxionProvider<F extends Fluxion<S>, S> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final value = _value;
-    if (value != null) {
-      return InheritedProvider<F>.value(
-        value: value,
+    if (_value != null) {
+      return Provider<F>.value(
+        value: _value!,
         updateShouldNotify: _updateShouldNotify,
         child: child,
       );
     } else {
-      return InheritedProvider<F>(
-        create: _create,
+      return Provider<F>(
+        create: _create!,
         lazy: _lazy,
         dispose: (_, fluxion) => fluxion.clear(),
         child: child,
