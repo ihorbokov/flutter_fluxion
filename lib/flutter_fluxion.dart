@@ -10,3 +10,5 @@ export 'src/fluxion_consumer.dart';
 export 'src/fluxion_listener.dart';
 export 'src/fluxion_provider.dart';
 export 'src/fluxion_selector.dart';
+export 'src/multi_fluxion_listener.dart';
+export 'src/multi_fluxion_provider.dart';

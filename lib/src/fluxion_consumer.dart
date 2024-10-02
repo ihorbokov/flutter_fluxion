@@ -54,7 +54,7 @@ class FluxionConsumer<F extends Fluxion<S>, S> extends StatelessWidget {
       fluxion: fluxion,
       listener: listener,
       listenWhen: listenWhen,
-      child: FluxionBuilder(
+      child: FluxionBuilder<F, S>(
         fluxion: fluxion,
         builder: builder,
         buildWhen: buildWhen,
