@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fluxion/src/fluxion_listener.dart';
 import 'package:flutter_fluxion/src/multi_fluxion_listener.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 import 'common/fluxion_stub.dart';
 
@@ -187,41 +188,43 @@ void main() {
         var listener3State = fluxion2.state;
 
         await tester.pumpWidget(
-          MaterialApp(
-            home: MultiFluxionListener(
-              listeners: [
-                (child) {
-                  return FluxionListener<TestIntFluxion, int>(
-                    fluxion: fluxion1,
-                    listener: (_, state) {
-                      listener1Called = true;
-                      listener1State = state;
-                    },
-                    child: child,
-                  );
-                },
-                (child) {
-                  return FluxionListener<TestIntFluxion, int>(
-                    fluxion: fluxion1,
-                    listener: (_, state) {
-                      listener2Called = true;
-                      listener2State = state;
-                    },
-                    child: child,
-                  );
-                },
-                (child) {
-                  return FluxionListener<TestStringFluxion, String>(
-                    fluxion: fluxion2,
-                    listener: (_, state) {
-                      listener3Called = true;
-                      listener3State = state;
-                    },
-                    child: child,
-                  );
-                },
-              ],
-              child: const Placeholder(),
+          Provider.value(
+            value: fluxion2,
+            child: MaterialApp(
+              home: MultiFluxionListener(
+                listeners: [
+                  (child) {
+                    return FluxionListener<TestIntFluxion, int>(
+                      fluxion: fluxion1,
+                      listener: (_, state) {
+                        listener1Called = true;
+                        listener1State = state;
+                      },
+                      child: child,
+                    );
+                  },
+                  (child) {
+                    return FluxionListener<TestIntFluxion, int>(
+                      fluxion: fluxion1,
+                      listener: (_, state) {
+                        listener2Called = true;
+                        listener2State = state;
+                      },
+                      child: child,
+                    );
+                  },
+                  (child) {
+                    return FluxionListener<TestStringFluxion, String>(
+                      listener: (_, state) {
+                        listener3Called = true;
+                        listener3State = state;
+                      },
+                      child: child,
+                    );
+                  },
+                ],
+                child: const Placeholder(),
+              ),
             ),
           ),
         );
