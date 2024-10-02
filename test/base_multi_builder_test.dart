@@ -11,12 +11,12 @@ void main() {
           const MaterialApp(
             home: _TestBaseMultiBuilder(
               builders: [],
-              child: Text('Initial Child'),
+              child: Placeholder(),
             ),
           ),
         );
 
-        expect(find.text('Initial Child'), findsOneWidget);
+        expect(find.byType(Placeholder), findsOneWidget);
       },
     );
 
@@ -34,13 +34,13 @@ void main() {
                   );
                 },
               ],
-              child: const Text('Initial Child'),
+              child: const Placeholder(),
             ),
           ),
         );
 
         expect(find.byType(Padding), findsOneWidget);
-        expect(find.text('Initial Child'), findsOneWidget);
+        expect(find.byType(Placeholder), findsOneWidget);
       },
     );
 
@@ -64,7 +64,7 @@ void main() {
                   );
                 },
               ],
-              child: const Text('Initial Child'),
+              child: const Placeholder(),
             ),
           ),
         );
@@ -79,7 +79,7 @@ void main() {
         expect(coloredBoxWidget.child, isInstanceOf<Padding>());
 
         final paddingWidget = tester.widget<Padding>(paddingFinder);
-        expect(paddingWidget.child, isInstanceOf<Text>());
+        expect(paddingWidget.child, isInstanceOf<Placeholder>());
       },
     );
 
@@ -108,7 +108,7 @@ void main() {
                   );
                 },
               ],
-              child: const Text('Initial Child'),
+              child: const Placeholder(),
             ),
           ),
         );
@@ -127,7 +127,7 @@ void main() {
 
         final alignWidgetChild = alignWidget?.child;
         expect(alignWidgetChild, isNotNull);
-        expect(alignWidgetChild, isInstanceOf<Text>());
+        expect(alignWidgetChild, isInstanceOf<Placeholder>());
       },
     );
   });
