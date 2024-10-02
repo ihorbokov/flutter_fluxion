@@ -3,7 +3,7 @@ import 'package:flutter_fluxion/src/fluxion_listener.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
-import 'common.dart';
+import 'common/fluxion_stub.dart';
 
 void main() {
   group('FluxionListener', () {

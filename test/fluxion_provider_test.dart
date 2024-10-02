@@ -3,7 +3,7 @@ import 'package:flutter_fluxion/src/fluxion_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
-import 'common.dart';
+import 'common/fluxion_stub.dart';
 
 void main() {
   group('FluxionProvider', () {
@@ -51,51 +51,57 @@ void main() {
       },
     );
 
-    testWidgets('forcefully creates Fluxion', (tester) async {
-      var created = false;
+    testWidgets(
+      'forcefully creates Fluxion',
+      (tester) async {
+        var created = false;
 
-      TestIntFluxion create(BuildContext context) {
-        created = true;
-        return TestIntFluxion(0);
-      }
+        TestIntFluxion create(BuildContext context) {
+          created = true;
+          return TestIntFluxion(0);
+        }
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: FluxionProvider<TestIntFluxion, int>(
-            create: create,
-            lazy: false,
-            child: const Placeholder(),
+        await tester.pumpWidget(
+          MaterialApp(
+            home: FluxionProvider<TestIntFluxion, int>(
+              create: create,
+              lazy: false,
+              child: const Placeholder(),
+            ),
           ),
-        ),
-      );
+        );
 
-      expect(created, isTrue);
-    });
+        expect(created, isTrue);
+      },
+    );
 
-    testWidgets('lazily creates Fluxion', (tester) async {
-      var created = false;
+    testWidgets(
+      'lazily creates Fluxion',
+      (tester) async {
+        var created = false;
 
-      TestIntFluxion create(BuildContext context) {
-        created = true;
-        return TestIntFluxion(0);
-      }
+        TestIntFluxion create(BuildContext context) {
+          created = true;
+          return TestIntFluxion(0);
+        }
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: FluxionProvider<TestIntFluxion, int>(
-            create: create,
-            child: const Text('Lazy Test'),
+        await tester.pumpWidget(
+          MaterialApp(
+            home: FluxionProvider<TestIntFluxion, int>(
+              create: create,
+              child: const Text('Lazy Test'),
+            ),
           ),
-        ),
-      );
+        );
 
-      expect(created, isFalse);
+        expect(created, isFalse);
 
-      final context = tester.element(find.text('Lazy Test'));
-      final fluxion = context.read<TestIntFluxion>();
+        final context = tester.element(find.text('Lazy Test'));
+        final fluxion = context.read<TestIntFluxion>();
 
-      expect(created, isTrue);
-      expect(fluxion.state, 0);
-    });
+        expect(created, isTrue);
+        expect(fluxion.state, 0);
+      },
+    );
   });
 }

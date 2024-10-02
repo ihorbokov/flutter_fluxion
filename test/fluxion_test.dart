@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'common.dart';
+import 'common/fluxion_stub.dart';
 
 void main() {
   group('Fluxion', () {
