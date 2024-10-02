@@ -15,14 +15,14 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
-            home: _TestListener(
+            home: _TestBaseListener(
               fluxion: fluxion,
             ),
           ),
         );
 
-        final state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        final state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, isA<TestIntFluxion>());
@@ -42,13 +42,13 @@ void main() {
           Provider.value(
             value: fluxion,
             child: const MaterialApp(
-              home: _TestListener(),
+              home: _TestBaseListener(),
             ),
           ),
         );
 
-        final state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        final state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, isA<TestIntFluxion>());
@@ -66,14 +66,14 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
-            home: _TestListener(
+            home: _TestBaseListener(
               fluxion: fluxion,
             ),
           ),
         );
 
-        final state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        final state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualState, isA<int>());
@@ -95,21 +95,21 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
-            home: _TestListener(
+            home: _TestBaseListener(
               fluxion: fluxion1,
             ),
           ),
         );
 
-        var state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        var state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, equals(fluxion1));
 
         await tester.pumpWidget(
           MaterialApp(
-            home: _TestListener(
+            home: _TestBaseListener(
               fluxion: fluxion2,
             ),
           ),
@@ -117,8 +117,8 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, equals(fluxion2));
@@ -135,13 +135,13 @@ void main() {
           Provider.value(
             value: fluxion1,
             child: const MaterialApp(
-              home: _TestListener(),
+              home: _TestBaseListener(),
             ),
           ),
         );
 
-        var state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        var state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, equals(fluxion1));
@@ -150,15 +150,15 @@ void main() {
           Provider.value(
             value: fluxion2,
             child: const MaterialApp(
-              home: _TestListener(),
+              home: _TestBaseListener(),
             ),
           ),
         );
 
         await tester.pumpAndSettle();
 
-        state = tester.state<_TestListenerState>(
-          find.byType(_TestListener),
+        state = tester.state<_TestBaseListenerState>(
+          find.byType(_TestBaseListener),
         );
 
         expect(state.actualFluxion, equals(fluxion2));
@@ -167,15 +167,15 @@ void main() {
   });
 }
 
-class _TestListener extends BaseListener<TestIntFluxion, int> {
-  const _TestListener({super.fluxion});
+class _TestBaseListener extends BaseListener<TestIntFluxion, int> {
+  const _TestBaseListener({super.fluxion});
 
   @override
-  State<_TestListener> createState() => _TestListenerState();
+  State<_TestBaseListener> createState() => _TestBaseListenerState();
 }
 
-class _TestListenerState
-    extends BaseListenerState<TestIntFluxion, int, _TestListener> {
+class _TestBaseListenerState
+    extends BaseListenerState<TestIntFluxion, int, _TestBaseListener> {
   late int actualState = fluxion.state;
 
   Fluxion<int> get actualFluxion => fluxion;
