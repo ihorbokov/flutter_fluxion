@@ -19,12 +19,12 @@ typedef FlxnProviderBuilder<F extends Fluxion<S>, S extends Object?>
 /// ```dart
 /// MultiFluxionProvider(
 ///   providers: [
-///     (child) => FluxionProvider<MyFluxionA, MyStateA>(
-///       create: (context) => MyFluxionA(),
+///     (child) => FluxionProvider<FluxionA, StateA>(
+///       create: (context) => FluxionA(),
 ///       child: child,
 ///     ),
-///     (child) => FluxionProvider<MyFluxionB, MyStateB>(
-///       create: (context) => MyFluxionB(),
+///     (child) => FluxionProvider<FluxionB, StateB>(
+///       create: (context) => FluxionB(),
 ///       child: child,
 ///     ),
 ///   ],
