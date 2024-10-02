@@ -82,24 +82,24 @@ void main() {
           ),
         );
 
-        final listenerFinder1 = find.byWidgetPredicate(
+        final listener1Finder = find.byWidgetPredicate(
           (widget) =>
               widget is FluxionListener<TestIntFluxion, int> &&
               widget.fluxion == fluxion1,
         );
 
-        final listenerFinder2 = find.byWidgetPredicate(
+        final listener2Finder = find.byWidgetPredicate(
           (widget) =>
               widget is FluxionListener<TestStringFluxion, String> &&
               widget.fluxion == fluxion2,
         );
 
-        expect(listenerFinder1, findsOneWidget);
-        expect(listenerFinder2, findsOneWidget);
+        expect(listener1Finder, findsOneWidget);
+        expect(listener2Finder, findsOneWidget);
 
         final listener1Widget =
             tester.widget<FluxionListener<TestIntFluxion, int>>(
-          listenerFinder1,
+          listener1Finder,
         );
         expect(
           listener1Widget.child,
@@ -108,7 +108,7 @@ void main() {
 
         final listener2Widget =
             tester.widget<FluxionListener<TestStringFluxion, String>>(
-          listenerFinder2,
+          listener2Finder,
         );
         expect(listener2Widget.child, isInstanceOf<Placeholder>());
       },
@@ -144,24 +144,24 @@ void main() {
           ),
         );
 
-        final listenerFinder1 = find.byWidgetPredicate(
+        final listener1Finder = find.byWidgetPredicate(
           (widget) =>
               widget is FluxionListener<TestIntFluxion, int> &&
               widget.fluxion == fluxion1,
         );
 
-        final listenerFinder2 = find.byWidgetPredicate(
+        final listener2Finder = find.byWidgetPredicate(
           (widget) =>
               widget is FluxionListener<TestStringFluxion, String> &&
               widget.fluxion == fluxion2,
         );
 
-        expect(listenerFinder1, findsOneWidget);
-        expect(listenerFinder2, findsOneWidget);
+        expect(listener1Finder, findsOneWidget);
+        expect(listener2Finder, findsOneWidget);
 
         final listener1Widget =
             tester.widget<FluxionListener<TestIntFluxion, int>>(
-          listenerFinder1,
+          listener1Finder,
         );
 
         final listener2Widget = listener1Widget.child

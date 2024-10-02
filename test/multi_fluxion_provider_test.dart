@@ -78,18 +78,18 @@ void main() {
           ),
         );
 
-        final providerFinder1 =
+        final provider1Finder =
             find.byType(FluxionProvider<TestIntFluxion, int>);
 
-        final providerFinder2 =
+        final provider2Finder =
             find.byType(FluxionProvider<TestStringFluxion, String>);
 
-        expect(providerFinder1, findsOneWidget);
-        expect(providerFinder2, findsOneWidget);
+        expect(provider1Finder, findsOneWidget);
+        expect(provider2Finder, findsOneWidget);
 
         final provider1Widget =
             tester.widget<FluxionProvider<TestIntFluxion, int>>(
-          providerFinder1,
+          provider1Finder,
         );
         expect(
           provider1Widget.child,
@@ -98,7 +98,7 @@ void main() {
 
         final listener2Widget =
             tester.widget<FluxionProvider<TestStringFluxion, String>>(
-          providerFinder2,
+          provider2Finder,
         );
         expect(listener2Widget.child, isInstanceOf<Placeholder>());
       },
