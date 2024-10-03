@@ -1,6 +1,10 @@
+# 1.0.2
+
+Added `MultiFluxionListener` and `MultiFluxionProvider`.
+
 # 1.0.1
 
-Refactored FluxionProvider.
+Refactored `FluxionProvider`.
 
 # 1.0.0
 
