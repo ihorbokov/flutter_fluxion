@@ -17,5 +17,5 @@ Flutter Fluxion is a highly reactive state management library designed to optimi
 - **Reactive State Management**: Easily manage and emit changes to your state, ensuring your UI updates seamlessly.
 - **Selective Rebuilding**: Use `FluxionBuilder`, `FluxionConsumer`, and `FluxionSelector` to rebuild only the parts of your UI that actually need updating.
 - **Performance Optimized**: Minimizes unnecessary widget rebuilds, ensuring your app remains fast and responsive.
-- **Dynamic State Listening**: `FluxionListener` allows you to react to state changes anywhere in your app without rebuilding the UI, making it ideal for triggering actions like navigation or showing dialogs based on state changes.
-- **Contextual State Provision**: `FluxionProvider` simplifies state management by making it accessible throughout the widget subtree, enabling you to manage and access state easily without boilerplate.
+- **Dynamic State Listening**: `FluxionListener`, and `MultiFluxionListener` allow you to react to state changes anywhere in your app without rebuilding the UI, making them ideal for triggering actions like navigation or showing dialogs based on state changes.
+- **Contextual State Provision**: `FluxionProvider`, and `MultiFluxionProvider` simplify state management by making it accessible throughout the widget subtree, enabling you to manage and access state easily without boilerplate.
